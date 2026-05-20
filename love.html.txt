@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ჩემს პრინცესას 💚</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fce4ec; /* საწყისი ღია ფონი */
+            transition: background-color 2s ease-in-out;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+        }
+
+        /* კონვერტის კონტეინერი */
+        .envelope-wrapper {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        /* კონვერტის უკანა მხარე */
+        .env-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #d81b60;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* წერილი / ფურცელი */
+        .letter {
+            position: absolute;
+            bottom: 0;
+            left: 5%;
+            width: 90%;
+            height: 180px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: all 1.5s ease-in-out;
+            z-index: 2;
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: center;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .letter p {
+            font-size: 14px;
+            color: #2e7d32; /* მწვანე ტექსტი გულების შესაბამისად */
+            line-height: 1.5;
+            margin: 0;
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
+        }
+
+        /* კონვერტის წინა მხარე */
+        .env-front {
+            position: absolute;
+            bottom: 0;
+            width: 0;
+            height: 0;
+            border-left: 150px solid transparent;
+            border-right: 150px solid transparent;
+            border-bottom: 100px solid #e91e63;
+            border-radius: 0 0 10px 10px;
+            z-index: 3;
+        }
+
+        .env-front-left {
+            position: absolute;
+            bottom: 0;
+            width: 0;
+            height: 0;
+            border-top: 100px solid transparent;
+            border-bottom: 100px solid transparent;
+            border-left: 150px solid #ec407a;
+            z-index: 4;
+        }
+
+        .env-front-right {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 0;
+            height: 0;
+            border-top: 100px solid transparent;
+            border-bottom: 100px solid transparent;
+            border-right: 150px solid #ec407a;
+            z-index: 4;
+        }
+
+        /* კონვერტის თავსახური */
+        .env-flap {
+            position: absolute;
+            top: 0;
+            width: 0;
+            height: 0;
+            border-left: 150px solid transparent;
+            border-right: 150px solid transparent;
+            border-top: 120px solid #c2185b;
+            transform-origin: top;
+            transition: transform 0.8s ease-in-out, z-index 0.2s;
+            z-index: 5;
+        }
+
+        /* ნახატი კონვერტზე (ცხვრები) */
+        .sheep-drawing {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 6;
+            font-size: 2.5rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            pointer-events: none;
+        }
+
+        /* გულების წვიმა */
+        .falling-heart {
+            position: absolute;
+            top: -10vh;
+            font-size: 1.5rem;
+            animation: fall linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(110vh);
+            }
+        }
+
+        /* ბალახები და ყვავილები */
+        .grass-container {
+            position: fixed;
+            bottom: -150px; /* თავიდან დამალულია */
+            left: 0;
+            width: 100%;
+            font-size: 4rem;
+            white-space: nowrap;
+            text-align: center;
+            transition: bottom 2s ease-in-out;
+            z-index: 10;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- გულების კონტეინერი -->
+    <div id="hearts-container"></div>
+
+    <!-- კონვერტი -->
+    <div class="envelope-wrapper" onclick="openEnvelope()">
+        <div class="env-back"></div>
+        
+        <div class="letter" id="love-letter">
+            <p id="letter-text">
+                დილამშვიდობისა✨✨💚 ჩემო ჩემო ჩემო ჩემო პატარა და უსაყვარლესო პრინცესააავ💚 ჩემო გულის დედოფალოოო💚 ჩემო ერთადერთოოო💚ჩემო განუმეორებელოო💚 იცი როგორ ძაან მიყვარხაარ ჩემო პატარავ💚 ნეტა იცოდე რას განვიცდი შენ რომ მყავხაარ💚 როგორ ბედნიერს მხდი ჩემო გულო💚 ჩემი უდიდესი გამართლება ხარ ამ ცხოვრებაში💚 ჩემი სასწაული ხარ ცხოვრება💚 ვერ ვიჯერებ რომ მყავხარ ვერ ვიჯერებ რომ ასე გამიმართლა💚 ყველაზე ყველაზე ყველაზე იღბლიანი ადამიანი ვარ💚 მადლობა ჩემო პატარავ ყველაფრისთვის მადლობააა💚 საუკეთესო მყავხაარ💚 ყველაზე ლამაზი, საყვარელი, სექსუალური, თბილი, სათნო, ემპატიური, კეთილი, ბუზღუნა💚💚💚 შეუდარებელი ხარ ჩემო დედოფალო💚 უზომოთ გნატრობს და უზომოთ უყვარხარ შენს ცხვარს🐑💚 გკოცნი ბევრს სული ერთ მაქ გნახო და შეგიგრძნო თავიდან ბოლომდეე💚მიყვარხაააააარ✨💚💚
+            </p>
+        </div>
+
+        <div class="env-front-left"></div>
+        <div class="env-front-right"></div>
+        <div class="env-front"></div>
+        
+        <!-- ცხვრების ილუსტრაცია -->
+        <div class="sheep-drawing">
+            <span style="display:inline-block; transform: scaleX(-1);">🐑</span>
+            <span style="color:red; font-size: 1.5rem;">❤️</span>
+            <span style="display:inline-block;">🐑</span>
+        </div>
+
+        <div class="env-flap" id="flap"></div>
+    </div>
+
+    <!-- ბალახი და ყვავილები ეკრანის ბოლოში -->
+    <div class="grass-container" id="grass">
+        🌿🌸🌷🌼🍀🌿🌺🌸🌼🌿🌷🍀🌿🌸🌼🌺🌿
+    </div>
+
+    <script>
+        let isOpened = false;
+
+        function openEnvelope() {
+            if (isOpened) return; // რომ ორჯერ არ დაეჭიროს
+            isOpened = true;
+
+            const flap = document.getElementById('flap');
+            const letter = document.getElementById('love-letter');
+            const letterText = document.getElementById('letter-text');
+            const grass = document.getElementById('grass');
+
+            // 1. კონვერტის თავსახურის ახდა
+            flap.style.transform = 'rotateX(180deg)';
+            
+            setTimeout(() => {
+                flap.style.zIndex = '1';
+            }, 400); // z-index-ის შეცვლა რომ ფურცელმა ამოიწიოს
+
+            // 2. ფურცლის ამოსვლა და გადიდება
+            setTimeout(() => {
+                letter.style.height = 'auto';
+                letter.style.minHeight = '300px';
+                letter.style.transform = 'translateY(-220px) scale(1.1)';
+                letter.style.zIndex = '20'; // ფურცელი მოდის წინ
+                letterText.style.opacity = '1'; // ტექსტი ჩნდება
+            }, 800);
+
+            // 3. ფონის შეცვლა და ბალახების ამოსვლა
+            setTimeout(() => {
+                document.body.style.backgroundColor = '#ffb6c1'; // ვარდისფერი ფონი
+                grass.style.bottom = '-10px'; // ბალახების გამოჩენა
+                startHeartRain(); // გულების წვიმის დაწყება
+            }, 1500);
+        }
+
+        // გულების წვიმის ფუნქცია
+        function startHeartRain() {
+            const container = document.getElementById('hearts-container');
+            const hearts = ['❤️', '💖', '💚', '✨', '💕']; // სიმბოლოები რომლებიც იწვიმებს
+
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.classList.add('falling-heart');
+                // შემთხვევითი გულის არჩევა მასივიდან
+                heart.innerText = hearts[Math.floor(Math.random() * hearts.length)];
+                
+                // შემთხვევითი პოზიცია და ზომა
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = Math.random() * 3 + 2 + 's'; // 2-დან 5 წამამდე
+                heart.style.fontSize = Math.random() * 1.5 + 1 + 'rem';
+                
+                container.appendChild(heart);
+
+                // წაშლა მას მერე რაც ეკრანს გასცდება, რათა ბრაუზერი არ გადაიტვირთოს
+                setTimeout(() => {
+                    heart.remove();
+                }, 5000);
+            }, 150); // ყოველ 150 მილიწამში ახალი გული ეცემა
+        }
+    </script>
+</body>
+</html>
